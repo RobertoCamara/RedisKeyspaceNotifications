@@ -9,7 +9,7 @@ namespace RedisKeyspaceNotifications
     class Program
     {
         private const string StrConn =
-            "localhost:6379,ConnectTimeout=5000,configCheckSeconds=30,keepAlive=20,syncTimeout=5000,defaultDatabase=3";
+            "localhost:6379,ConnectTimeout=5000,configCheckSeconds=30,keepAlive=20,syncTimeout=5000,defaultDatabase=0";
 
         private static Random _random = new Random();
         private static readonly ConnectionMultiplexer _cacheConnection;
@@ -86,7 +86,7 @@ namespace RedisKeyspaceNotifications
 
                 for (int i = 0; i < 1000; i++)
                 {
-                    Thread.Sleep(TimeSpan.FromSeconds(2));
+                    Thread.Sleep(TimeSpan.FromSeconds(5));
 
                     var key = instances[_random.Next(50)];
                     var value = DateTime.Now.ToString("HH:mm:ss.ffff");
@@ -130,7 +130,7 @@ namespace RedisKeyspaceNotifications
         {
             Console.WriteLine("Redis Keyspace Notifications !");
             
-            RegisterSubscribers(3);
+            RegisterSubscribers();
             
             SetCache();
             RenameCache();

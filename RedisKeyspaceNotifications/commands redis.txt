@@ -1,0 +1,9 @@
+﻿
+https://redis.io/docs/manual/keyspace-notifications/
+
+https://linuxhint.com/enable-redis-keyspace-notification/
+
+CONFIG SET notify-keyspace-events KEA
+
+-- keyspacenotifications aws
+https://aws.amazon.com/premiumsupport/knowledge-center/elasticache-redis-keyspace-notifications/
